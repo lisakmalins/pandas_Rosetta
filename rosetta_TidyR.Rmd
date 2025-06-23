@@ -1,0 +1,46 @@
+---
+title: "Rosetta Stone: Tidyverse R"
+author: "Lisa Malins"
+output:
+  html_document:
+    toc: true
+    df_print: paged
+    keep_md: TRUE
+  pdf_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+    keep_md: TRUE
+---
+
+This is a demonstration of basic data wrangling operations in Tidyverse R.
+
+Sister notebooks demonstrate the exact same operations in base R and the Pandas library in Python, just like the Rosetta Stone.
+
+## I/O
+### Create dataframe from scratch
+```{r}
+suppressPackageStartupMessages(library("dplyr"))
+tbl <- tibble(
+  letter = c("a", "b", "c", "d", "e"),
+  number = c(1:5),
+  fruit = c("apple", "banana", "coconut", "date", "elderberry"),
+  vegetable = c("arugula", "beet", "carrot", "daikon", "eggplant"),
+  name = c("Alice", "Bob", "Carol", "Dan", "Eve")
+)
+tbl
+```
+
+### Write
+```{r}
+library("readr")
+write_csv(tbl, "data/tidy_letters.csv")
+write_tsv(tbl, "data/tidy_letters.tsv")
+```
+
+### Read
+```{r}
+library("readr")
+read_csv("data/tidy_letters.csv")
+read_tsv("data/tidy_letters.tsv")
+```
