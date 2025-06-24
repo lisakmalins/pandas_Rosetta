@@ -14,6 +14,8 @@ output:
     keep_md: TRUE
 ---
 
+&nbsp;
+
 This is a demonstration of basic data wrangling operations in base R.
 
 Sister notebooks demonstrate the exact same operations in Tidyverse R and the Pandas library in Python, just like the Rosetta Stone.
