@@ -1,5 +1,6 @@
 ---
-title: "Rosetta Stone: Tidyverse R"
+title: "pandas (R)osetta: Tidyverse R"
+subtitle: "Intro to R and Tidyverse for Pandas users and vice versa."
 author: "Lisa Malins"
 output:
   html_document:

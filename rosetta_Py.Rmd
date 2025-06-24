@@ -1,5 +1,6 @@
 ---
-title: 'Rosetta Stone: Pandas'
+title: "pandas (R)osetta: Pandas"
+subtitle: "Intro to Pandas for R users and vice versa."
 author: "Lisa Malins"
 output:
   html_document:
