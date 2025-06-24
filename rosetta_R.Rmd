@@ -2,13 +2,13 @@
 title: "Rosetta Stone: R"
 author: "Lisa Malins"
 output:
+  html_document:
+    toc: true
+    df_print: paged
+    keep_md: TRUE
   pdf_document:
     toc: true
     toc_depth: 4
-    df_print: paged
-    keep_md: TRUE
-  html_document:
-    toc: true
     df_print: paged
     keep_md: TRUE
 ---
