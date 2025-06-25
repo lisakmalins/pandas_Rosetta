@@ -1,32 +1,22 @@
----
-title: "pandas (R)osetta: Pandas"
-subtitle: "Intro to Pandas for R users and vice versa."
-author: "Lisa Malins"
-knit: (function(inputFile, encoding) {
-    rmarkdown::render(
-      inputFile,
-      encoding = encoding,
-      output_dir = "output",
-      output_format = "all")
-    })
-output:
-  html_document:
-    toc: true
-    keep_md: TRUE
-  pdf_document:
-    toc: true
-    toc_depth: 4
----
+pandas (R)osetta: Pandas
+================
+Lisa Malins
 
-&nbsp;
+- [I/O](#io)
+  - [Create dataframe from scratch](#create-dataframe-from-scratch)
+  - [Write](#write)
+  - [Read](#read)
 
-This is a demonstration of basic data wrangling operations in the Pandas library for Python.
+ 
 
-Sister notebooks demonstrate the exact same operations in base R and Tidyverse R, just like the Rosetta Stone.
+This is a demonstration of basic data wrangling operations in the Pandas
+library for Python.
 
-
+Sister notebooks demonstrate the exact same operations in base R and
+Tidyverse R, just like the Rosetta Stone.
 
 ## I/O
+
 ### Create dataframe from scratch
 
 ``` python
@@ -42,15 +32,12 @@ df = pd.DataFrame(
 df
 ```
 
-```
-##   letter  number       fruit vegetable   name
-## 0      a       1       apple   arugula  Alice
-## 1      b       2      banana      beet    Bob
-## 2      c       3     coconut    carrot  Carol
-## 3      d       4        date    daikon    Dan
-## 4      e       5  elderberry  eggplant    Eve
-```
-
+    ##   letter  number       fruit vegetable   name
+    ## 0      a       1       apple   arugula  Alice
+    ## 1      b       2      banana      beet    Bob
+    ## 2      c       3     coconut    carrot  Carol
+    ## 3      d       4        date    daikon    Dan
+    ## 4      e       5  elderberry  eggplant    Eve
 
 ### Write
 
@@ -65,25 +52,20 @@ df.to_csv("data/py_letters.tsv", sep="\t", index=False)
 pd.read_csv("data/py_letters.csv")
 ```
 
-```
-##   letter  number       fruit vegetable   name
-## 0      a       1       apple   arugula  Alice
-## 1      b       2      banana      beet    Bob
-## 2      c       3     coconut    carrot  Carol
-## 3      d       4        date    daikon    Dan
-## 4      e       5  elderberry  eggplant    Eve
-```
+    ##   letter  number       fruit vegetable   name
+    ## 0      a       1       apple   arugula  Alice
+    ## 1      b       2      banana      beet    Bob
+    ## 2      c       3     coconut    carrot  Carol
+    ## 3      d       4        date    daikon    Dan
+    ## 4      e       5  elderberry  eggplant    Eve
 
 ``` python
 pd.read_table("data/py_letters.tsv")
 ```
 
-```
-##   letter  number       fruit vegetable   name
-## 0      a       1       apple   arugula  Alice
-## 1      b       2      banana      beet    Bob
-## 2      c       3     coconut    carrot  Carol
-## 3      d       4        date    daikon    Dan
-## 4      e       5  elderberry  eggplant    Eve
-```
-
+    ##   letter  number       fruit vegetable   name
+    ## 0      a       1       apple   arugula  Alice
+    ## 1      b       2      banana      beet    Bob
+    ## 2      c       3     coconut    carrot  Carol
+    ## 3      d       4        date    daikon    Dan
+    ## 4      e       5  elderberry  eggplant    Eve
