@@ -46,7 +46,7 @@ df = pd.DataFrame(
 df
 ```
 
-
+\newpage
 ### Write
 ```{python}
 df.to_csv("data/py_letters.csv", index=False)
