@@ -2,6 +2,13 @@
 title: "pandas (R)osetta: R"
 subtitle: "Intro to R for Pandas users and vice versa."
 author: "Lisa Malins"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(
+      inputFile,
+      encoding = encoding,
+      output_dir = "output",
+      output_format = "all")
+    })
 output:
   github_document:
     toc: true
