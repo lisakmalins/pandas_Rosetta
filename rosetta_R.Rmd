@@ -3,15 +3,15 @@ title: "pandas (R)osetta: R"
 subtitle: "Intro to R for Pandas users and vice versa."
 author: "Lisa Malins"
 output:
+  github_document:
+    toc: true
   html_document:
     toc: true
     df_print: paged
-    keep_md: TRUE
   pdf_document:
     toc: true
     toc_depth: 4
     df_print: "default"
-    keep_md: TRUE
 ---
 
 &nbsp;

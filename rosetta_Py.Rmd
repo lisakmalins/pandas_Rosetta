@@ -3,13 +3,13 @@ title: "pandas (R)osetta: Pandas"
 subtitle: "Intro to Pandas for R users and vice versa."
 author: "Lisa Malins"
 output:
+  github_document:
+    toc: true
   html_document:
     toc: true
-    keep_md: TRUE
   pdf_document:
     toc: true
     toc_depth: 4
-    keep_md: TRUE
 ---
 
 &nbsp;
