@@ -2820,6 +2820,88 @@ read_csv(&quot;data/tidy_letters.csv&quot;)</code></pre>
 </div>
 </div>
 </div>
+<div id="accessing-data" class="section level2">
+<h2>Accessing data</h2>
+<p>Note for Pandas users:</p>
+<ul>
+<li>Both R and Pandas have the same convention of
+<code>[row, column]</code> for retrieving a cell from a dataframe.</li>
+<li>However, if only one number is specified with no comma, in pandas a
+row is returned, but in R a column is returned.</li>
+<li>Also, remember that <strong>R has 1-based indexing</strong> while
+Python has 0-based indexing.</li>
+<li>Thus,
+<ul>
+<li>In pandas: <code>df.iloc[1]</code> returns the second row</li>
+<li>In R: <code>df[1]</code> returns the first column</li>
+</ul></li>
+</ul>
+<div id="select-cell" class="section level3">
+<h3>Select cell</h3>
+<p>To <strong>select a single cell</strong>, <strong>use double
+brackets</strong> with the row number, followed by the column number or
+column name.</p>
+<pre class="r"><code># Get &quot;banana&quot; cell value
+tbl[[2, 3]]
+tbl[[2, &quot;fruit&quot;]]</code></pre>
+<pre><code>## [1] &quot;banana&quot;
+## [1] &quot;banana&quot;</code></pre>
+<p>Cells can also be selected with single brackets.
+<strong>Tibbles</strong> (the Tidyverse version of dataframes) actually
+have different behavior for single brackets than dataframes in base
+R.</p>
+<ul>
+<li>When using single brackets to select a single cell of a dataframe,
+the value itself is returned.</li>
+<li>When using single brackets to select a single cell of a tibble, a
+1x1 tibble is returned. The behavior of tibbles is more consistent with
+R behavior generally, because single brackets usually return an object
+of the same type.</li>
+</ul>
+<pre class="r"><code># Get &quot;banana&quot; cell as 1x1 tibble
+tbl[2, 3]
+tbl[2, &quot;fruit&quot;]</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["fruit"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"banana"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["fruit"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"banana"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>The bracket notation is the most common method of selecting a single
+cell, even in Tidyverse workflows.</p>
+<p>That being said, there are <code>dplyr</code> functions that do the
+same thing, and can be useful for chaining when a single cell is the end
+goal, but other <code>dplyr</code> operations need to be done first.</p>
+<ul>
+<li><code>select</code> returns one or more columns (as a
+dataframe)</li>
+<li><code>pull</code> returns a single column as a vector</li>
+<li><code>slice</code> returns a row</li>
+</ul>
+<pre class="r"><code># Get &quot;banana&quot; cell value
+tbl %&gt;% slice(2) %&gt;% pull(&quot;fruit&quot;)
+tbl %&gt;% slice(2) %&gt;% pull(3)</code></pre>
+<pre><code>## [1] &quot;banana&quot;
+## [1] &quot;banana&quot;</code></pre>
+<pre class="r"><code># Get &quot;banana&quot; cell as 1x1 tibble
+tbl %&gt;% select(&quot;fruit&quot;) %&gt;% slice(2)
+tbl %&gt;% select(3) %&gt;% slice(2)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["fruit"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"banana"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["fruit"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"banana"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
 
 
 

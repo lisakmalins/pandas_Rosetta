@@ -2800,6 +2800,52 @@ write.table(df, &quot;data/R_letters.tsv&quot;, sep=&quot;\t&quot;, row.names=FA
 </div>
 </div>
 </div>
+<div id="accessing-data" class="section level2">
+<h2>Accessing data</h2>
+<p>Note for Pandas users:</p>
+<ul>
+<li>Both R and Pandas have the same convention of
+<code>[row, column]</code> for retrieving a cell from a dataframe.</li>
+<li>However, if only one number is specified with no comma, in pandas a
+row is returned, but in R a column is returned.</li>
+<li>Also, remember that <strong>R has 1-based indexing</strong> while
+Python has 0-based indexing.</li>
+<li>Thus,
+<ul>
+<li>In pandas: <code>df.iloc[1]</code> returns the second row</li>
+<li>In R: <code>df[1]</code> returns the first column</li>
+</ul></li>
+</ul>
+<pre class="r"><code># Returns first column (&quot;letter&quot;)
+df[1]</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["letter"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"a"},{"1":"b"},{"1":"c"},{"1":"d"},{"1":"e"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div id="select-cell" class="section level3">
+<h3>Select cell</h3>
+<p>To <strong>select a single cell</strong>, <strong>use double
+brackets</strong> with the row number, followed by the column number or
+name.</p>
+<pre class="r"><code># Get &quot;banana&quot; cell value
+df[[2, 3]]
+df[[2, &quot;fruit&quot;]]</code></pre>
+<pre><code>## [1] &quot;banana&quot;
+## [1] &quot;banana&quot;</code></pre>
+<p>Cells can also be selected with single brackets. The two notations
+<em>are</em> different and are used for different things (more on that
+later), but when selecting a single value, the distinction is moot in
+base R.</p>
+<pre class="r"><code># Usually, single brackets return a dataframe,
+# but when it&#39;s a 1x1 selection, just the value is returned
+df[2, 3]
+df[2, &quot;fruit&quot;]
+# The 4 expressions above are all identical</code></pre>
+<pre><code>## [1] &quot;banana&quot;
+## [1] &quot;banana&quot;</code></pre>
+</div>
+</div>
 
 
 

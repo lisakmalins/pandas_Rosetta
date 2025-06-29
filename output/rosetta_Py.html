@@ -1535,6 +1535,54 @@ df.to_csv(&quot;data/py_letters.tsv&quot;, sep=&quot;\t&quot;, index=False)</cod
 ## 4      e       5  elderberry  eggplant    Eve</code></pre>
 </div>
 </div>
+<div id="accessing-data" class="section level2">
+<h2>Accessing data</h2>
+<p>Note for base R users:</p>
+<ul>
+<li>Both Pandas and R have the same convention of
+<code>[row, column]</code> for retrieving a cell from a dataframe.</li>
+<li>However, if only one number is specified with no comma, in R a
+column is returned, but <strong>in pandas a row is
+returned</strong>.</li>
+<li>Also, remember that <strong>Python has 0-based indexing</strong>
+while R has 1-based indexing.</li>
+<li>Thus,
+<ul>
+<li>In R: <code>df[1]</code> returns the first column</li>
+<li>In pandas: <code>df.iloc[1]</code> returns the second row</li>
+</ul></li>
+</ul>
+<pre class="python"><code># Returns second row (&quot;b&quot;) as a Series object
+df.iloc[1]</code></pre>
+<pre><code>## letter            b
+## number            2
+## fruit        banana
+## vegetable      beet
+## name            Bob
+## Name: 1, dtype: object</code></pre>
+<div id="select-cell" class="section level3">
+<h3>Select cell</h3>
+<p>In Python, cells can be selected with the <code>.loc[...]</code>
+property, which is label-based (think “location of column”), or
+<code>.iloc[...]</code>, which is index-based (think “index/integer
+location of column”).</p>
+<pre class="python"><code># Get &quot;banana&quot; cell value
+df.loc[1, &quot;fruit&quot;] # or
+df.iloc[1, 2]</code></pre>
+<pre><code>## &#39;banana&#39;
+## &#39;banana&#39;</code></pre>
+<p>The above options return the value in the cell, but if you needed a
+1x1 dataframe for some reason, you could do that by wrapping each
+location in brackets to pass as a list.</p>
+<pre class="python"><code># Get &quot;banana&quot; cell as 1x1 dataframe
+df.iloc[[1], [2]] # or
+df.loc[[1], [&quot;fruit&quot;]]</code></pre>
+<pre><code>##     fruit
+## 1  banana
+##     fruit
+## 1  banana</code></pre>
+</div>
+</div>
 
 
 
